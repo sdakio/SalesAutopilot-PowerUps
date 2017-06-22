@@ -1,12 +1,10 @@
 <?php
-
-//http://nitronetmediakft:cba7eebcd98eba2057f5721862c641a3@restapi.emesz.com/list/37290/field/email/value/gerzsenyi.tamas@yahoo.com
 header("access-control-allow-origin: *");
 error_reporting(E_ALL);
 ini_set('display_errors',1);
 
 $apiusername = "your_apiusername";
-$apipassword = "your-apipassword";
+$apipassword = "your_apipassword";
 
 $listids = $_POST["listids"];
 $email = $_POST["email"];
@@ -59,6 +57,7 @@ foreach($listids as $listid) {
 //var_dump($bills);
 }
 
+/* A teljesítés dátuma alapján rendezzük a számlákat */
 function sortFunction( $a, $b ) {
     return strtotime($a["execute_date"]) - strtotime($b["execute_date"]);
 }

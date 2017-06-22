@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script type="text/javascript"src="https://d1ursyhqs5x9h1.cloudfront.net/sw/scripts/jquery-1.11.0.min.js"></script>
+    
+    <script>
+    jQuery(document).ready(function() {
+
+        /* Létrehozunk egy függvényt a link lekéréséhez */
+        getLink = function(listid,formid,frameid) {
+
+            /* Ide kell kerülnie a feliratkozó email címének.
+             * Én rejtett mezőben elhelyeztem azon az oldalon az email címhez tartozó mezőkódot (ehhez a tagsági rendszer dokumentációjában találsz segítséget),
+             * amelyikbe beletettem ezt a képernyőt, majd jQuery-vel kiolvastam ennek a sornak a helyén.
+            */
+            var subscriberEmail = "somebody@somehost.com";
+
+            /* Az email mellett a lista és az űrlap azonosítójára lesz szükség ahhoz, hogy az űrlapot meg tudjuk jeleníteni */
+            data = {
+                e: subscriberEmail,
+                l: listid,
+                f: formid
+            }
+
+            /* Maga a hívás */
+            jQuery.ajax({
+                type: 'POST',
+                url: 'http://ugyfelek.emesz.hu/sandrineteszt/updateform-link.php',
+                data: data
+            })
+            /* Sikeres hívás esetén ez történjen */
+            .done(function(response) {
+                /* Az iFrame-be betöltjük a linken található űrlapot */
+                jQuery('#' + frameid).prop('src',response);
+            })
+            /* A hiba esetet itt kezelhetjük */
+            .fail(function() {
+                console.log('hiba');
+            });
+
+            return false;
+        };
+
+        /* A függvényhívás maga.
+         * Mivel függvényt haszálunk, amegoldás könnyen újra használható más oldalon is.
+         */
+        getLink(1234,5678,'updateframe');
+    });
+
+    </script>
+</head>
+
+<body>
+    <iframe id="updateframe" style="position:absolute;top:0;left:0;width:100%;height:100%;" src="" scrolling="auto" frameborder="0"></iframe>
+</body>
+
+</html>
