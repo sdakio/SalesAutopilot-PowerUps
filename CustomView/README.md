@@ -1,0 +1,5 @@
+# Egyedi képernyők
+
+Ezt a kódmintát egyik kedves kollegám ihlette, aki maga is SalesAutopilot ügyfél, és rendezvények kapcsán felmerült benne az igény egy nagyon könnyen újrahasznosítható egyedi képernyő megoldásra, amivel a jelentkezők adatait meg tudja jelenítni. Mit tehettem volan hát, készítettem neki egyet. Mivel szerinte ez többeknek jelentene nagy segítséget, ha egy ilyen minta kódhoz hozzájutnának, elérhetővé tettem számotokra is.
+A repositoryban megtaláljátok a php file-t, ami az API lekérdezést, az eredmény feldolgozását, és táblázat formátumba rendezését végzi, illetve egy mint html forrást, amibe beletettem neki egy kis formázást, beállítottam, hogy a fejlécben az oszlopokra kattintva rendezhető legyen a táblázat mezők szerint, és meghívom a php scriptet.
+A minta kód természetesen nem fog működni egy az egyben ha lemásolod, hiszen az APi kulcspár nincs kitöltve a php forrásban, és a lista és szegmens azonosítók is az én teszt fiókomba mutatnak. Ezeket cseréld le a sajátodra! Jó kísérletezgetést :)
