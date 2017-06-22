@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <title>Számlák</title>
+    <meta charset="utf-8">
+    <script type="text/javascript"src="https://d1ursyhqs5x9h1.cloudfront.net/sw/scripts/jquery-1.11.0.min.js"></script>
+    <style>
+    #billtable td {vertical-align:middle; padding-bottom:4px; min-width: 160px;}
+    #billtable tr:nth-of-type(even) {background-color: #fafafa;}
+    </style>
+
+    <script>
+
+    jQuery(document).ready(function() {
+
+        getBills = function() {
+
+            /* Ide kell kerülnie a feliratkozó email címének.
+             * Én rejtett mezőben elhelyeztem azon az oldalon az email címhez tartozó mezőkódot (ehhez a tagsági rendszer dokumentációjában találsz segítséget),
+             * amelyikbe beletettem ezt a képernyőt, majd jQuery-vel kiolvastam ennek a sornak a helyén.
+            */
+            var customerEmail = 'somebody@somehost.com'; 
+
+            /* Ide kerülnek azok a listák, amelyekből szeretnénk lekérni a számlákat. Azért van lehetőség több lista megadására, mert tipikusan külön listában kezeljük az egszeri díjas termékeket, pl. egy könv
+             * és az ismétlődő fizetéssel fizethető termékeket, azonban kényelmes az ügyfél számára, ha minden számláját megtalálja egy képernyőn a klubtagsági felületen.
+             */
+            var listids = [1234, 5678];
+
+            /* A fenti két adattal hívjuk meg a php scriptet, ami a tényleges lekérdezést végzi */
+            data = {
+                email: customerEmail,
+                listids: listids
+            }
+
+            /* Maga a hívás */
+            jQuery.ajax({
+                type: 'POST',
+                url: 'http://link_to_your_script.php',
+                data: data
+            })
+            /* Sikeres hívás esetén ez történjen */
+            .done(function(response) {
+                /* Tömbbé alakítjuk a visszakapott adatokat */
+                obj = jQuery.parseJSON(response);
+                /* Létrehozzuk a táblázatot */
+                jQuery("#billtablediv").append("<table id='billtable'></table>");
+                /* Létrehozzuk a fejlécet, ez természetesen a megjelenítet adatokhoz kell hogy igazodjon, ez csak egy példa */
+                jQuery("#billtable").append("<tr style='font-weight:bold;'><td>Számla letöltése</td><td>Teljesítés napja</td><td>Rendelt termékek</td></tr>");
+                /* Végül megjelenítjük az egyes számlázott megrendelések adatait. Ezeket az adatokat a php scrptünk küldi, ott szűrjük,
+                 * hogy milyen adatok érkezzenek meg a weblapra a szervertől kapottak közül. */
+                for (var i = 0; i < obj.length; i++) {
+                    /* console.log(obj[i]); //Fejlesztéskor érdemes kiíratn, hogy milyen adatokat kaptunk, így könnyebb rájuk hivatkozni */
+                    var tr = "<tr>";
+                    /* Első oszlopban egy ikont helyezünk el, ami a számla pdf-re mutató link lesz */
+                    var td1 = "<td>" + "<a href='" + obj[i]["bill"] + "' target='_blank'><img src='http://www.freeiconspng.com/uploads/invoices-icon-15.png' style='width: 30px;'/></a></td>";
+                    /* Második oszlop a teljesítés napja */
+                    var td2 = "<td>" + obj[i]["execute_date"] + "</td>";
+                    /* A harmadik oszlop két soros: tartalmazza a rendelt termékek megnevezését, és a bruttó végösszeget, egy 'alsor' egy termék */
+                    var td3 = "<td>";
+                    for( var j=0; j<obj[i]["items"].length; j++)
+                    {
+                        if( j>0 ) {
+                            td3 += '<br>';
+                        }
+                        td3 += '<span style="font-weight:bold;">' + obj[i]["items"][j]["item_name"] + "</span><br>Bruttó " + obj[i]["items"][j]["item_gross_price"] + " Ft.";
+                    }
+                    td3 += "</td>";
+                    var tr2 = "</tr>";
+
+                    jQuery("#billtable").append(tr + td1 + td2 + td3 + tr2);
+                }
+
+            })
+            /* A hiba esetet itt kezelhetjük */
+            .fail(function() {
+                console.log('hiba');
+            });
+
+        return false;
+        };
+
+    getBills();
+    });
+
+</script>
+</head>
+
+<body>
+    <div id="billtablediv"></div>
+</body>
+
+</html>
