@@ -7,7 +7,6 @@ mmjQuery(document).ready(function() {
     mmjQuery("#ordertotal").hide();
     mmjQuery("#ordertotal").after('<span id="newtotal" style="display: inline;"></span>');
     mmjQuery('#newtotal').hide();
-    console.log(mmjQuery('#newtotal'));
 
     var brunitprice = mmjQuery('span[id*="brunitprice"]')[0]
     var onlyId      = mmjQuery(brunitprice).prop('id').replace('brunitprice','');
