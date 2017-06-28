@@ -7,7 +7,7 @@
     //Az azonos nevű input mezőkbe betöltjük a kapott értékeket
     for (var i = 0; i < query.length; i++) {
       var field = query[i].split("=");
-      mmjQuery("input[name='" + field[0] + "'], select[name='" + field[0] + "'], textarea[name='" + field[0] + "']").val(field[1]);
+      mmjQuery("input[name='" + field[0] + "'], select[name='" + field[0] + "'], textarea[name='" + field[0] + "']").val(decodeURIComponent(field[1]));
     }
   });
 </script>
