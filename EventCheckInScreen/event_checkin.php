@@ -26,9 +26,10 @@
 
 <body>
 <?php
-$apiusername = "dakiosandrine";
-$apipassword = "b6ed99cf2bd50cc5f258e54028081bd0";
-
+//Ahhoz a fiókhoz tartozó api felhasználónév és jelszó, amelyikben a lista található
+//API kulcspárt így lehet létrehozni: https://www.salesautopilot.hu/tudasbazis/osszetett-rendszerek-keszitese/api-kulcsparok-kezelese
+$apiusername = "";
+$apipassword = "";
 
 print("<div style='margin-top:10px;margin-bottom:10px;'><strong>Jelöld pipával, kik azok, akik megjelentek!</strong><br></div>");
 //Az a lista, amelyben a jelentkezések találhatóak
