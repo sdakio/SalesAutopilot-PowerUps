@@ -5,8 +5,8 @@ mmjQuery(document).ready(function(){
     //Ha egy termék nem szerepel a mátrixban, akkor ahhoz minden fizetési mód engedélyezett
     //Ha több termék van kiválasztva, az a fizetési mód elérhető, amelyik mindegyikhez engedélyezett
     var termek_fizetes_matrix = Array();
-    termek_fizetes_matrix['304800'] = [20025, 20055, 20401];
-    termek_fizetes_matrix['334391'] = [20025, 20026, 20041];
+    termek_fizetes_matrix['123456'] = [987, 2654, 321];
+    termek_fizetes_matrix['789101'] = [321, 548];
     
     //Ha változik a kiválasztott termék
     mmjQuery(".prodchk").change(function() {
