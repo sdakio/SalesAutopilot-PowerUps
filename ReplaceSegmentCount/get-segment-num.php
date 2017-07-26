@@ -9,7 +9,7 @@ $apipassword = "";
 //Kiszedjük a kapott adatokból a szegmens azonosítóját
 $segmentId = $_POST["segmentid"];
 
-//Meghíjuk az API metódust, hogy megkapjuk a szegmensbe tartozók számát
+//Meghívjuk az API metódust, hogy megkapjuk a szegmensbe tartozók számát
 $curl = curl_init();
 curl_setopt_array($curl, array(
 CURLOPT_RETURNTRANSFER => true,

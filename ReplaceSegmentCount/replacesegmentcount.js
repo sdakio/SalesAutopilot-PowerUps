@@ -22,6 +22,6 @@ jQuery(document).ready(function() {
     }
 
     //Végül az összes használt változóra meghívjuk a függvényt egyenként.
-    replaceGlobalVar('your_segment_id');
+    replaceSegmentNum('your_segment_id');
 });
 </script>
