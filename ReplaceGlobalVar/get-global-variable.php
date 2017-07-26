@@ -1,12 +1,8 @@
 <?php
-
 header('Access-Control-Allow-Origin: *');
 header('content-type: text/html; charset:utf-8');
 
-error_reporting(E_ALL);
-ini_set('display_errors',1);
-
-//Ahhoz a fiókhoz tartozó api felhasználónév és jelszó, amelyikben a globális változó
+//Ahhoz a fiókhoz tartozó api felhasználónév és jelszó, amelyikben a globális változó található
 //API kulcspárt így lehet létrehozni: https://www.salesautopilot.hu/tudasbazis/osszetett-rendszerek-keszitese/api-kulcsparok-kezelese
 $apiusername = "";
 $apipassword = "";
