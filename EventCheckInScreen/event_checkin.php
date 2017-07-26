@@ -83,7 +83,7 @@ $(document).ready(function() {
 		//A megfelelő változtatást a háttérben leküldjük a szoftverbe
 		$.ajax({
 			type: "POST",
-			url: 'url_to_your_cript/save_status.php',
+			url: 'url_to_your_script/save_status.php',
 			data:{nl_id:<?php print $nl_id; ?>, ns_id:<?php print $ns_id; ?>, id:$(this).attr('id'), statusField:'<?php print $statusField; ?>', present:$(this).is(':checked')}
 		});
 	});
