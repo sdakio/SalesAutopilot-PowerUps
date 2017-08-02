@@ -1,8 +1,9 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
 jQuery(document).ready(function() {
     //Függvénybe tesszük a script meghívását, így ha több szegmensre hivatkozunk, csak a függvényt kell többször meghívnunk
     //Paraméterül a szegmens azonosítóját adjuk meg
-    function replaceSegmentNum( segmentId ) {
+    function replaceSegmentIncome( segmentId ) {
         jQuery.ajax({
             type: 'POST',
             url:  'url_to_your_script/get-segment-income.php',
