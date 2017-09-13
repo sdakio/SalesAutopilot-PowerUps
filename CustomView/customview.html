@@ -43,8 +43,10 @@
 	$(document).ready( function() {
 	    $.ajax({
 	        type: "POST",
-	        url: "http://url/to/the/script/customview.php",
-	        data: { "nl_id" : "53676", "fields" : "email, mssys_firstname, mssys_lastname, alma, mssys_ordered_items", "segments" : "78260, 77177" },
+	        url: "http://ugyfelek.emesz.hu/sandrineteszt/customview/customview.php",
+	        data: { "nl_id" : "53676", 
+	        	"fields" : "email=>Email, mssys_firstname=>Keresztnév, mssys_lastname=>Vezetéknév, alma=>Kamu, mssys_ordered_items=>Rendelt termékek, mssys_updateform_113267=>Űrlap",
+	        	"segments" : "78260, 77177" },
 	        dataType: "html", //html formátumban kapjuk vissza az adatokat
 	        success: function(response) {
 	            //Ha megkaptuk az eredményt, beillesztjük a neki fenntartott helyre
