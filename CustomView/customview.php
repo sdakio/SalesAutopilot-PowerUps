@@ -69,7 +69,7 @@ if (is_array($array)) {
 		foreach( $validFields as $field) {
 			//Ha űrlap link a mező, akkor legyen kattintható ikon
 			if (substr($field[0], 0, strlen('mssys_updateform_')) === 'mssys_updateform_') {
-				echo '<td style="text-align: center;"><a target="_blank" href="' . $subscriber->$field . '"><img src="https://www.ringlead.com/wp-content/uploads/2016/08/Web-Form-Icon-225px.png" width="25px" height="25px"></a></td>';	
+				echo '<td style="text-align: center;"><a target="_blank" href="' . $subscriber->$field[0] . '"><img src="https://www.ringlead.com/wp-content/uploads/2016/08/Web-Form-Icon-225px.png" width="25px" height="25px"></a></td>';	
 			}
 			else {
 				echo '<td>' . $subscriber->$field[0] . '</td>';
