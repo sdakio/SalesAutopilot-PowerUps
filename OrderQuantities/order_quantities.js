@@ -1,6 +1,6 @@
 <script>
 mmjQuery( document ).ready( function() {
-	//Az azonosítójú termék darabszámának változásakor
+	//Az 1234 azonosítójú termék darabszámának változásakor
 	mmjQuery("#qty_1234").change( function(){
 		//A db_1234 szám típusú mezőhöz tartozó beviteli mező értékét beállítjuk a darabszámra
 		//A db_1234 mezőt ellőzőleg fel kell venni a listára, és rejtett mezőként az űrlapon el kell helyezni
