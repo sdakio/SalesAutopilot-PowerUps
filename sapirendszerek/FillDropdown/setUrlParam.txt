@@ -1,0 +1,16 @@
+<script>
+var frameId = 'mmiframe1234';
+var $jq = jQuery.noConflict();
+var iframe = document.getElementById(frameId);
+
+$jq("a[href='#urlap']").click( function() {
+ var prodId = $jq(this).closest('.product').attr('id');
+ if (undefined===prodId) { return; }
+ var src = iframe.src.split("#");
+ var srcLastPart = src[1];
+ src = src[0].split("?");
+ var srcFirstPart = src[0];
+
+ iframe.src = srcFirstPart + "?" + "productId=" + prodId + "#" + srcLastPart;
+});
+</script>
