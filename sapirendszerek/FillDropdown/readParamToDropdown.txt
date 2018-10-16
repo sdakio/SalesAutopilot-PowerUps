@@ -1,0 +1,13 @@
+<script>
+	var query = document.location.search.replace('?', '');
+	query = query.split('&');
+	for (var i = 0; i < query.length; i++) {
+		var field = query[i].split("=");
+
+		//Legördülő értékének beállítása
+		//A mydropdown-t cseréld ki a mező nevére!
+		if ('mydropdown' == field[0]) {
+			mmjQuery("#mydropdown").val(field[1]);
+		}
+	}
+</script>
