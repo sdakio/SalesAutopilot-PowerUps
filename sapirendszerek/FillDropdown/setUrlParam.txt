@@ -1,5 +1,5 @@
 <script>
-var frameId = 'mmiframe1234';
+var frameId = 'mmiframe1234'; //Az 1234-et cseréld ki a SAPI űrlap azonosítójára
 var $jq = jQuery.noConflict();
 var iframe = document.getElementById(frameId);
 
