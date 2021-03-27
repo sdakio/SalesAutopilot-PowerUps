@@ -12,7 +12,7 @@ $nl_id       = $_POST['nl_id'];
 $ns_id       = $_POST['ns_id'];
 $id          = $_POST['id'];
 $statusField = $_POST['statusField'];
-$present     = $_POST['present'];
+$present     = ("true"==$_POST['present']  ? "1" : "0");
 
 $curl = curl_init();
 curl_setopt_array($curl, array(
